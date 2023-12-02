@@ -1,6 +1,6 @@
 import WebSocket from 'ws';
-import log4js from 'log4js';
-import { API_KEY, LOG_FILENAME } from './config.js';
+import { API_KEY } from './config.js';
+import logger from './logger.js';
 
 const AGGREGATE_INDEX = '5';
 const INVALID_SUB_MESSAGE = 'INVALID_SUB';
@@ -9,13 +9,6 @@ const UNAUTHORIZED_MESSAGE = '401';
 const API_URL = `wss://streamer.cryptocompare.com/v2?api_key=${API_KEY}`;
 
 const handlers = [];
-
-log4js.configure({
-  appenders: { info: { type: 'file', filename: LOG_FILENAME } },
-  categories: { default: { appenders: ['info'], level: 'error' } },
-});
-const logger = log4js.getLogger();
-logger.level = 'info';
 
 let socket = new WebSocket(API_URL);
 
