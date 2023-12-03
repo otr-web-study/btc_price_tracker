@@ -7,25 +7,26 @@ const { options, selectValue, needsPickRange, range, dataPrice, onSelectChange, 
 
 <template>
   <TheHeader />
-  <main class="main">
-    <TheContainer>
-      <a-space direction="vertical" size="middle">
-        <TheControls
-          :options="options"
-          :selectValue="selectValue"
-          :needsPickRange="needsPickRange"
-          :range="range"
-          @select-change="onSelectChange"
-          @range-change="onRangeChange"
-        />
-        <PriceChart :dataPrice="dataPrice" />
-      </a-space>
-    </TheContainer>
-  </main>
+  <TheContainer>
+    <main class="main">
+      <TheControls
+        :options="options"
+        :selectValue="selectValue"
+        :needsPickRange="needsPickRange"
+        :range="range"
+        @select-change="onSelectChange"
+        @range-change="onRangeChange"
+      />
+      <PriceChart :dataPrice="dataPrice" />
+    </main>
+  </TheContainer>
 </template>
 
 <style scoped>
 .main {
-  padding-block: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-block: 40px;
 }
 </style>

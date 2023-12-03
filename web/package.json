@@ -17,6 +17,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@opd/g2plot-vue": "^3.6.7",
     "mongoose": "^8.0.2"
   }
 }
