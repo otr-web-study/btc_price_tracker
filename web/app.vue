@@ -1,14 +1,25 @@
 <script setup>
 import './index.css';
 
-const { options, selectValue, onSelectChange } = usePrice();
+const { options, selectValue, needsPickRange, range, dataPrice, onSelectChange, onRangeChange } =
+  usePrice();
 </script>
 
 <template>
   <TheHeader />
   <main class="main">
     <TheContainer>
-      <TheControls :options="options" :selectValue="selectValue" @select-change="onSelectChange" />
+      <a-space direction="vertical" size="middle">
+        <TheControls
+          :options="options"
+          :selectValue="selectValue"
+          :needsPickRange="needsPickRange"
+          :range="range"
+          @select-change="onSelectChange"
+          @range-change="onRangeChange"
+        />
+        <PriceChart :dataPrice="dataPrice" />
+      </a-space>
     </TheContainer>
   </main>
 </template>
